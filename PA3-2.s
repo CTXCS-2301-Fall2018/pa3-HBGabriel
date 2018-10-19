@@ -38,8 +38,7 @@ main:
 	CMP   R1, #1    @Check for "peanuts"
 	MOVEQ R3, #75   @If user entered 1 set R3 to 75
 	
-	LDRLT R0, =msg7
-	MOVLT R3, #1
+	LDRLT R0, =msg7 @If user enters less than 1 set error
 	BLLT  printf
 	MOVLT R7, #1
 	SWILT #0
@@ -48,9 +47,9 @@ main:
 	MOVEQ R3, #125  @If user entered 2 set R3 to 125
 
 	CMP   R1, #3    @Check for "pretzels"
-	MOVEQ R3, #90
+	MOVEQ R3, #90	@If user entered 3 set R3 to 90
 	MOVGT R3, #1
-			@If user entered 3 set R3 to 90
+	
 	LDRGT R0, =msg7 @If we get here user entered
         BLGT  printf 	@an illegal selection so print
         MOVGT R7, #1 	@error message and terminate
